@@ -1,27 +1,30 @@
-name: Java CI
+name: Run Java HelloWorld
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      # Set up Java (choose version as needed)
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Compile Java program
-        run: javac HelloWorld.java
+      # Compile HelloWorld.java
+      - name: Compile Java program
+        run: javac HelloWorld.java
 
-      - name: Run Java program
-        run: java HelloWorld
+      # Run HelloWorld
+      - name: Run Java program
+        run: java HelloWorld
